@@ -1,0 +1,1 @@
+pyinstaller PHIS.py -p PHIS_blast.py -p PHIS_codon.py -p PHIS_crispr.py -p PHIS_domain_domain_int.py -p overall_phage_to_host_domain.py -p PHIS_homo_homo_int.py -p PHIS_prophage.py -p PHIS_protein_protein_int.py -p PHIS_virhostmatcher.py -p PHIS_wish.py -p predict_interaction_using_learning_model.py -p /100T/ganr/PHIS/script/virhostmatcher/vhm_modify_input_model.py
