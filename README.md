@@ -91,9 +91,9 @@ You can find a directory named "test" in the PHISDector package. Five test examp
 12. svm_linear: the possibility of the interaction between the input phage and the host based on svm linear machine learning model output
 13. logistic: the possibility of the interaction between the input phage and the host based on logistic machine learning model output
 
-![](https://github.com/gancao/PHISDector/tree/master/document/images/PHIS_result_visualization_add_description1.png)
+![](https://github.com/gancao/PHISDector/blob/master/document/images/PHIS_result_visualization_add_description1.png)
 
-![](https://github.com/gancao/PHISDector/tree/master/document/images/PHIS_result_visualization_add_description2.png)
+![](https://github.com/gancao/PHISDector/blob/master/document/images/PHIS_result_visualization_add_description2.png)
 
 The folder named "module_results" contains the corresponding results in each kind of signal.
 
