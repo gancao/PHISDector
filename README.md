@@ -73,7 +73,7 @@ for *blast*: the GeneHomolog module<br>
 `PHIS --input <file path> --output <folder name> --min_mis_crispr <x> --min_cov_crispr <x>`
 `PHIS --input <file path> --output <folder name> --model crispr --min_mis_crispr <x> --min_cov_crispr <x>`
 
-##Examples
+## Examples
 You can find a directory named "test" in the PHISDector package. Five test examples, all,crispr,prophage,protein_protein_interaction and blast have been prepared for users.All the example input is "Staphylococcus_phage_47.gb"  in Genbank format.<br>
 (1) The folder named "all" contains the prediction results when the input file is Staphylococcus_phage_47.gb. The root directory contains "PHIS_result.html",the visualization page which visualizes and analyzes the prediction hosts of Staphylococcus phage 47 through browser.The file overall_result.txt in results folder lists all the possibly interactive hosts with Staphylococcus phage 47,tab delimited.other files are Intermediate files.There are 13 columns:
 
