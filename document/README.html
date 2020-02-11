@@ -324,7 +324,7 @@ Requirements: </p>
 <h2>Install</h2>
 <ul>
 <li>
-<p>step1:Download the whole packages and partial profiles from <a href="https://github.com/iwillnever/PHISDector">https://github.com/iwillnever/PHISDector</a></p>
+<p>step1:Download the whole packages and partial profiles from <a href="https://github.com/gancao/PHISDector">https://github.com/gancao/PHISDector</a></p>
 </li>
 <li>
 <p>step2:Download the rest of large profiles and databases from <a href="http://www.microbiome-bigdata.com/PHISDetector/index/download">http://www.microbiome-bigdata.com/PHISDetector/index/download</a></p>
@@ -334,20 +334,35 @@ Requirements: </p>
 </li>
 <li>
 <p>step4:When you organize the whole files well,the corresponding directory structure are displayed as shown below. 
-<img src="https://github.com/iwillnever/PHISDector/blob/master/standalone_directory_structure.png" /></p>
+<img src="https://github.com/gancao/PHISDector/tree/master/document/images/standalone_directory_structure.png" /></p>
 </li>
 </ul>
 <h2>Usage</h2>
 <p>The standalone version of PHISDector can predict the hosts of query phages in fasta ,multi-fasta or GenBank format,combining 5 different signals including sequence composition, CRISPR-targeting, prophages, regions of genetic homology and protein-protein or domain-domain interactions.The program of prediction of hosts was divided into two steps.First,detect all the candidate hosts in terms of CRISPR-targeting, prophages and regions of genetic homology,satisfying the <strong>loose</strong> criteria referred in the paper <a href="http://www.microbiome-bigdata.com/PHISDetector/index/">http://www.microbiome-bigdata.com/PHISDetector/index/</a>.Second,the candidate hosts satisfying the strict criteria will be directly output and the rest of candidate hosts will be sent to the machine learning models including RandomForest(RF), Decision Trees (DT), Logistic Regression (LR), and Support Vector Machines (SVM) with RBF kernel and linear kernel, Gaussian Naive Bayes, and Bernoulli Naive Bayes.Finally,the consensus results will be written to a text file and intermediate results of each signal will be saved in corresponding directory.</p>
 <ul>
 <li>step1:Add the PHIS directory named bin into your environment PATH or you can use the absolute path to run the program.</li>
-<li>step2:To run a prediction, you should proceed like the following instructions.The required input is input file path in fasta or multi-fasta or Genbank format and output directory.The optional input is signal name(all,crispr,prophage,protein<em>protein</em>interaction,blast),the default option is all.If you want to see more parameters,please excute <code>PHIS</code> in command line.The visualization html page is generated if you run all signals.</li>
+<li>step2:To run a prediction, you should proceed like the following instructions.The required input is input file path in fasta or multi-fasta or Genbank format and output directory.The optional model input is signal name(all,crispr,prophage,protein<em>protein</em>interaction,blast),the default option is all.The visualization html page is generated if you run all signals.If you want to see more parameters,please excute <code>PHIS</code> in command line.<br>
+In addition,the optional adjusting threshold parameters are listed as described below:<br>
+for <em>crispr</em>:<br>
+(1) min<em>mis</em>crispr <x> : Minimal mismatch of a Blastn hit on hit spacers(default: 2)<br>
+(2) min<em>cov<em>crispr <x> : Minimal % coverage of a Blastn hit on hit spacers(default: 70)<br>
+for <em>prophage</em>:<br>
+(3) min</em>per<em>prophage <x> : Minimal % percentage of hit proteins on hit prophage region(default:30)<br>
+(4) min</em>id</em>prophage <x> : Minimal % identity of hit region on hit prophage region by making blastn(default:70)<br>
+(5) min<em>cov</em>prophage <x> : Minimal % coverage of hit region on hit prophage region by making blastn(default:30)<br>
+for <em>protein<em>protein</em>interaction</em>:<br>
+(6) min<em>PPI <x> : Minimal PPI number of a pair of phage-host pair(default:1)<br>
+(7) min</em>DDI <x> : Minimal DDI number of a pair of phage-host pair(default:5)<br>
+for <em>blast</em>:<br>
+(8) min<em>per</em>blast <x> : Minimal % percentage of hit proteins on query phage and host by making blastp(default:10)<br>
+(9) min<em>id<em>blast <x> : Minimal % identity of hit region on query phage and host by making blastn(default:70)<br>
+(10) min</em>cov</em>blast <x> : Minimal % coverage of hit region on query phage and host by making blastn(default:10)</li>
 <li>step3:Predict the hosts of your query phages using all the signals with a simple command:<br>
 <code>PHIS --input &lt;file path&gt; --output &lt;folder name&gt;</code></li>
 <li>step4:Predict the hosts of your query phages using single signal with a simple command:
 <code>PHIS --input &lt;file path&gt; --output &lt;folder name&gt; --model all/crispr/prophage/protein_protein_interaction/blast</code></li>
-<li>step5:Predict the hosts of your query phages using the criterias you want with a simple example command,x is integer:
-<code>PHIS --input &lt;file path&gt; --output &lt;folder name&gt; --min_mis_crispr &lt;x&gt; --min_cov_crispr &lt;x&gt;</code></li>
+<li>step5:Predict the hosts of your query phages using the criterias you want with a simple example command,x is integer:<br>
+<code>PHIS --input &lt;file path&gt; --output &lt;folder name&gt; --model crispr --min_mis_crispr &lt;x&gt; --min_cov_crispr &lt;x&gt;</code></li>
 </ul>
 <h2>Contributors</h2>
 <p>This project exists thanks to all the people who contribute.</p>
