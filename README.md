@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PHISDetector: a great tool to detect and systematically study diverse in silico phage-host interaction signals
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/iwillnever/PHISDector)
 
